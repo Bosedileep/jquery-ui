@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <title>Blank App</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/hot-sneaks/jquery-ui.css" />
+	<script src="http://code.jquery.com/jquery-2.1.3.js"></script>
+	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	<script src="jquery.ui.touch-punch.min.js"></script>
+    <style>
+    	.drag{width: 100px; height: 150px; font-family:Verdana;
+            margin: 4px; text-align: center; border:5px solid #ccc; padding: 4px;
+        box-shadow:5px -5px 5px #999; margin:50px; margin-top: 50px;}
+        #myContainer { border: 5px dashed #666; width: 700px; height: 500px;
+        	background-image: url("shelf.jpg"); background-repeat: no-repeat; background-size: cover; 
+  				}
+  		.grid-container {display: grid; grid-template: 150px / auto auto auto; grid-gap: 70px 50px;}
+        	#drag_Y{margin-top: 50px;}
+    	    </style>
+    <script>
+         $(document).ready(function() {
+           $('#drag_X').draggable({
+                containment: "parent",
+                grid: [150, 75]
+            }).filter('#drag_X').draggable("option", "axis", "x");
+            $('#drag_X1').draggable({
+                containment: "parent"
+            }).filter('#drag_X1').draggable("option", "axis", "x");
+            $('#drag_Y').draggable({
+                containment: "parent"
+            }).filter('#drag_Y').draggable("option", "axis", "y");
+            $('#drag0,#drag1,#drag2').draggable({
+                containment: "parent"
+            })
+        });
+
+    </script>
+</head> 
+<body>
+  <div id="myContainer">
+ <div class="grid-container">
+ <div id="drag_X" class="drag">
+        <img src="book1.png" style="margin:auto; width:100px; height: 150px; display:block">
+    </div>
+    <div id="drag0" class="drag">
+        <img src="book2.jpg" style="margin:auto; width:100px; height: 150px; display:block">
+    </div>
+
+        <div id="drag_X1" class="drag">
+        <img src="book4.jpg" style="margin:auto; width:100px; height: 150px; display:block">
+    </div>
+     <div id="drag1" class="drag">
+        <img src="book1.png" style="margin:auto; width:100px; height: 150px; display:block">
+    </div>
+    <div id="drag_Y" class="drag">
+        <img src="book2.jpg" style="margin:auto; width:100px; height: 150px; display:block">
+    </div>
+
+        <div id="drag2" class="drag">
+        <img src="book3.jpeg" style="margin:auto; width:100px; height: 150px; display:block">
+    </div>
+     </div>
+  </div>
+  <p>None of the Draggables Cannot be moved outside the Container</p>
+</body>
+</html>
